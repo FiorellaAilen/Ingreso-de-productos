@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Fiorella Ailén
  */
 public class Rubro_ventana extends javax.swing.JInternalFrame {
-    
+
     DefaultTableModel tab = new DefaultTableModel();
 
     /**
@@ -26,7 +26,7 @@ public class Rubro_ventana extends javax.swing.JInternalFrame {
         String ids[] = {"Codigo", "Descripcion", "Precio", "Stock"};
         tab.setColumnIdentifiers(ids);
         jtRubro.setModel(tab);
-        
+
     }
 
     /**
@@ -112,14 +112,13 @@ public class Rubro_ventana extends javax.swing.JInternalFrame {
 
         Categoria encontrado = (Categoria) jcRubro.getSelectedItem();
         borrarFilas();
-        
+
         for (Producto encontrar : MenuGeneral.productos) {
             if (encontrar.getRubro().equals(encontrado)) {
                 tab.addRow(new Object[]{encontrar.getCodigo(), encontrar.getDescripcion(),
                     encontrar.getPrecio(), encontrar.getRubro(), encontrar.getStock()});
             }
         }
-
     }//GEN-LAST:event_jcRubroActionPerformed
 
 
@@ -132,12 +131,12 @@ public class Rubro_ventana extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void borrarFilas() {
-        
+
         int indice = tab.getRowCount() - 1;
-        
+
         for (int i = indice; i >= 0; i--) {
             tab.removeRow(i);
         }
     }
-    
+
 }
